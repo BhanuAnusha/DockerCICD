@@ -2,9 +2,18 @@ pipeline {
     agent any  // Run on any available agent
 
     stages {
-        stage('Hello') {
+        stage('Checkout Code') {
             steps {
-                echo 'Hello, World!'  // Print "Hello, World!" to the console
+                git branch: 'main', url: 'https://github.com/BhanuAnusha/EclipsePushJenkins.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    docker.image('openjdk:17-jdk').inside {
+                        sh 'mvn clean package'
+                    }
+                }
             }
         }
     }
