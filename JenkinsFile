@@ -10,11 +10,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-					docker.withRegistry('https://registry.hub.docker.com') {
-                    	docker.image('openjdk:17-jdk').inside {
-                        	sh 'mvn clean package'
-                    	}
-                	}
+                    docker.image('openjdk:17-jdk').inside {
+                       	sh 'mvn clean package'
+                    }
                 }
             }
         }
