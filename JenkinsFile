@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.image('java17').inside {
+                    docker.image('openjdk:17-jdk').inside {
                        	sh 'java --version'
                     }
                 }
