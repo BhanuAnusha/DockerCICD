@@ -10,12 +10,11 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.image('openjdk:17-jdk').inside {
-                       	sh 'mvn clean package'
+                    docker.image('java17').inside {
+                       	sh 'java --version'
                     }
                 }
             }
         }
     }
 }
-
