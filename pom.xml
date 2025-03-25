@@ -8,11 +8,13 @@
   <name>nut</name>
   <url>http://maven.apache.org</url>
 
-  <!-- Add properties for environment variables -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-
+    <java.version>11</java.version>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.release>11</maven.compiler.release>
+    
     <!-- Default values for environment variables -->
     <build.number>${env.BUILD_NUMBER}</build.number>
     <job.name>${env.JOB_NAME}</job.name>
@@ -52,7 +54,11 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <release>17</release>
+          <source>11</source>
+          <target>11</target>
+          <release>11</release>
+          <fork>true</fork>
+          <executable>/opt/java/openjdk/bin/javac</executable>
         </configuration>
       </plugin>
 
